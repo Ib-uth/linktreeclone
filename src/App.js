@@ -36,7 +36,7 @@ function App() {
       },
       ,
       {
-        name: "Investigation into developers' backgrounds",
+        name: "Investigation Into Developers' Backgrounds",
         url: "https://background.zuri.team/",
       },
       {
@@ -49,10 +49,10 @@ function App() {
   const CardWrapper = styled.div`
     padding-top: 3rem;
     @media (min-width: 768px) {
-      padding-top: 3rem;
+      padding-top: 2rem;
     }
     @media (min-width: 425px) {
-      padding-top: 2rem;
+      padding-top: 1rem;
     }
   `;
   const Links = styled.div`
@@ -81,7 +81,7 @@ function App() {
       width: 25rem;
     }
     @media (max-width: 425px) {
-      width: 13rem;
+      width: 14rem;
     }
   `;
   const Footer = styled.div`
