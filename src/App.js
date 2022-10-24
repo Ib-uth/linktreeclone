@@ -3,6 +3,7 @@ import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
+import styled from "styled-components";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
 import { Avatar } from "primereact/avatar";
@@ -44,35 +45,50 @@ function App() {
       },
     ],
   };
-
+  const Container = styled.div`
+    text-align: center;
+  `;
+  const Buttons = styled.a`
+    display: inline-block;
+    text-align: center;
+    border-radius: 2px;
+    padding: 0.5rem 0;
+    margin: 0.5rem 1rem;
+    width: 25rem;
+    color: Black;
+    text-decoration: none;
+  `;
   return (
     <div className="p-m-4 mt-8">
-      <div className="p-d-flex p-jc-center p-ai-centre p-flex-column p-flex-md-row">
-        <BlockUI>
-          <Avatar
-            className="p-jc-right"
-            image={data.profile__img}
-            size="xlarge"
-            shape="circle"
-          />
-          <h3 className="p-m-2 mb-3">{data.twitter}</h3>
-          <h3 className="p-m-2 mb-3" style={{ display: "none" }}>
-            {data.slack}
-          </h3>
-        </BlockUI>
-      </div>
+      <Container>
+        <div className="p-d-flex p-jc-center p-ai-centre p-flex-column p-flex-md-row">
+          <BlockUI>
+            <Avatar
+              className="p-jc-right"
+              image={data.profile__img}
+              size="xlarge"
+              shape="circle"
+            />
+            <h3 className="p-m-2 mb-3">{data.twitter}</h3>
+            <h3 className="p-m-2 mb-3" style={{ display: "none" }}>
+              {data.slack}
+            </h3>
+          </BlockUI>
+        </div>
+      </Container>
 
       <div className="p-d-flex p-jc-center p-ai-centre p-flex-column p-flex-md-row">
         <div className="p-d-flex p-flex-column">
           {data.links.map((link) => (
-            <Button
+            <Buttons
               className="p-m-2 p-button-lg p-button-text p-jc-center p-mb-2 p-mr-2"
+              href={link.url}
+              target="_blank"
+              rel="noreferrer"
               style={{ backgroundColor: "GrayText" }}
             >
-              <a href={link.url} target="_blank" rel="noreferrer">
-                {link.name}
-              </a>
-            </Button>
+              {link.name}
+            </Buttons>
           ))}
         </div>
       </div>
