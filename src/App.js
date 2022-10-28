@@ -18,29 +18,38 @@ function App() {
     zuri__img: "https://i.ibb.co/9pXcLQT/zuri.png",
     i4g__img: "https://i.ibb.co/kyMCS2Y/I4-G-Logo-Color-Cropped.png",
     hng: "HNG Internship 9 Frontend Task",
-    slack: "IbraheemUthmaan",
+    slack: "@IbraheemUthmaan",
     github: "https://github.com/Ib-uth",
     // eslint-disable-next-line no-sparse-arrays
     links: [
       {
         name: "Zuri Team",
+        id: "btn_zuri",
         url: "https://training.zuri.team/",
       },
       {
         name: "Zuri Books",
+        id: "books",
+        desc:" Get books about designs and coding.",
         url: "http://books.zuri.team/",
       },
       {
-        name: "Python Book",
-        url: "https://books.zuri.team/python-for-beginners?ref_id=IbraheemUthmaan",
+        name: "Python Books",
+        id: "book_python",
+        desc: "Do you want to learn Python? Open this!",
+        url: "https://books.zuri.team/python-for-beginners?ref_id=@IbraheemUthmaan",
       },
       ,
       {
-        name: "Investigation Into Developers' Backgrounds",
+        name: "Background Check for Coders",
+        id: "pitch",
+        desc:  "Are you a coder? Check your background with us.",
         url: "https://background.zuri.team/",
       },
       {
-        name: "Book Dsesigns",
+        name: "Design Books",
+        id: "book_design",
+        desc: "Get free design books from Zuri.",
         url: "https://books.zuri.team/design-rules",
       },
     ],
@@ -68,7 +77,7 @@ function App() {
   const Container = styled.div`
     text-align: center;
   `;
-  const Buttons = styled.a`
+  const Button = styled.a`
     display: inline-block;
     text-align: center;
     border-radius: 2px;
@@ -102,12 +111,13 @@ function App() {
             <BlockUI>
               <Avatar
                 className="p-jc-right"
+                id="profile_img"
                 image={data.profile__img}
                 size="xlarge"
                 shape="circle"
               />
-              <h3 className="p-m-2 mb-3">{data.twitter}</h3>
-              <h3 className="p-m-2 mb-3" style={{ display: "none" }}>
+              <h3 id="twitter" className="p-m-2 mb-3">{data.twitter}</h3>
+              <h3 id="slack" className="p-m-2 mb-3" style={{ display: "none" }}>
                 {data.slack}
               </h3>
             </BlockUI>
@@ -118,30 +128,33 @@ function App() {
           <div className="p-d-flex p-flex-column">
             {data.links.map((link) => (
               <Links>
-                <Buttons
+                <Button
                   className="p-m-2 p-button-lg p-button-text p-jc-center p-mb-2 p-mr-2"
+                  id={link.id}
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
                   style={{ backgroundColor: "GrayText" }}
                 >
                   {link.name}
-                </Buttons>
+                  
+                </Button>
+                <p className="p-jc-center p-ai-center" style={{ fontSize: "0.5em"}, {textAlign: "center"}}>{link.desc}</p>
               </Links>
             ))}
           </div>
         </div>
         <div className="p-d-flex p-jc-center p-ai-centre p-m-4">
-          <Button className="p-m-2 p-button-text">
+          <div className="p-m-2 p-button-text">
             <a href={data.slack} target="_blank" rel="noreferrer">
               <i className="pi pi-slack" style={{ fontSize: "2em" }}></i>
             </a>
-          </Button>
-          <Button className="p-m-2 p-button-text">
+          </div>
+          <div className="p-m-2 p-button-text">
             <a href={data.github} target="_blank" rel="noreferrer">
               <i className="pi pi-github" style={{ fontSize: "2em" }}></i>
             </a>
-          </Button>
+          </div>
         </div>
         <Divider />
         <Footer>
